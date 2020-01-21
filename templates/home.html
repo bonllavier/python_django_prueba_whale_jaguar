@@ -1,0 +1,28 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <div class="div_introduccion1">
+        <h1>Bienvenidos&nbsp;</h1>
+        <p>Extraiga información,conceptos y significado de documentos, tweets, URL, artículos de noticias y más con la API de análisis de texto de AYLIEN.<br></p>
+	</div>
+	<div class="bg-light border rounded div_enunciado1">
+		<h4>APLICACION DE ANÁLISIS DE TEXTO</h4>
+		<h2>Procesamiento del lenguaje natural para una comprensión efectiva del texto generado por humanos.</h2>
+		<p>Extraiga el significado y la comprensión del contenido textual con facilidad</p>
+	</div>
+	<div class="text-center d-flex d-lg-flex flex-column align-items-lg-center">
+		<h5>Ingrese para poder usar la aplicacion:</h5>
+		<button class="btn btn-primary btn_seleccion_home" type="button"><a href="{% url 'signup' %}" class="header_links">Registrarse</a></button>
+		<button class="btn btn-primary btn_seleccion_home" type="button"><a href="{% url 'login' %}" class="header_links">Login</a></button>
+		<button class="btn btn-primary btn_seleccion_home" type="button"><a href="/textanalyzer/" class="header_links">Analizar URL</a></button>
+	</div>
+	<div id="footer" class="text-center">
+		<h6>Javier Bonilla Mite // javb92</h6>
+		<h7>Made with Django/Python and JQuery</h7>
+	</div>
+	
+{% endblock %}

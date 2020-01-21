@@ -1,0 +1,61 @@
+﻿<!-- templates/text_analyzer/text_analyzer.html -->
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Text Analyzer{% endblock %}
+
+{% block content %}
+
+	{% if user.is_authenticated %}
+		<div id="loading">
+			<img id="loading-image" src="https://sindicatdellogateres.org/wp-content/uploads/2019/02/loading.gif" alt="Loading..." />
+		</div>
+		<div class="div_introduccion1 text-center">
+			<h1>Bienvenidos&nbsp;</h1>
+			<p>Extraiga información,conceptos y significado de documentos, tweets, URL, artículos de noticias y más con la API de análisis de texto de AYLIEN.<br></p>
+		</div>
+		<hr>
+		<div class="text-center">
+			{% csrf_token %}
+			Inserte URL:<br>
+			<input type="text" id="url_to_analyze">
+
+			<select id="lang_mode"></select>
+			<select id="doc_mode">
+				<option value="document">Documento</option>
+				<option value="tweet">Tweet</option>
+			</select>
+
+			<br>
+			<input type="submit" name="button" value="Submit" id='bttnsubmit' class="btn btn-primary btn_seleccion_home"/>
+		</div>
+		<hr>
+		<div class="div_introduccion1">
+			<h2><b><u>Analisis del Enlace</u></b></h2>
+			<hr>
+			<h3>Sentimiento</h3>
+			<table id="data_sentiment_analysis">
+			</table>
+			<hr>
+			<h3>Clasificaciones</h3>
+			<table id="data_classifications_analysis">
+			</table>
+			<hr>
+			<h3>Entidades</h3>
+			<table id="data_entities_analysis">
+			</table>
+			<hr>
+			<h3>Conceptos</h3>
+			<table id="data_concepts_analysis">
+			</table>
+			<hr>
+			<h3>Resumen</h3>
+			<table id="data_summary_analysis">
+			</table>
+		</div>
+    {% else %}
+		<p>You are not logged in</p>
+		<a href="{% url 'login' %}">Login</a>
+    {% endif %}
+
+{% endblock %}
+
